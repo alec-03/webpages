@@ -1,0 +1,23 @@
+/*
+ *Name: Alec Henderson
+ *UnityID: ajhende4
+ *Date: 9/20/22
+ *Assignment: GL4
+ *Description: guided lab for webpages
+ */
+ 
+p {
+    font-family:Times ;
+	font-size:16px;
+	color: #000000;
+}
+
+.table-border {
+    border: 1px solid #FFFFFF ;
+	
+}
+
+#photo-resize {
+    max-width: 250px;
+	max-height: 300px;
+}
