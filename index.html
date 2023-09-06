@@ -58,6 +58,29 @@
 							<article id="projects">
 								<h2 class="major">Projects</h2>
 								
+								
+								<h3 class="major">Endless Entertainment</h3>
+								<center>
+									<video width="50%" autoplay controls>
+										  <source src="images/racecar.mp4" type="video/mp4">
+										  Your browser does not support the video tag.
+									</video> 
+								</center>
+
+								<p>If you have spent any time on TikTok, Instagram Reels, or YouTube shorts, you will have stumbled upon a video like the one shown above: A narrator reading a story from Reddit aloud while video game footage plays in the background. After seeing about a dozen of these, the computer scientist within me wondered if these videos could be automated to any extent. Thus began a programming journey that would occupy me for a good portion of my summer--the finished product being a system that can churn out videos (including the one above) without any user input.</p>
+								<p>The top level design was simple: Find a Reddit post online, have a narrator read the content of the post aloud, tack the audio over some game footage, and then upload the finished product online. The low-level design was intentionally very complex--I wanted to see just how much I had learned after my sophomore year. My project started with the narrator. These types of posts often use a very robotic voice, but I wanted something better. I elected to use the tortoiseTTS API, a library for training and using an AI voice synthesizer on CUDA systems. I trained my model on podcasts made by a YouTuber I watch, an example is embedded below.</p>
+								<center>
+									<iframe width="100%" height="320px" src="https://www.youtube.com/embed/dsZzKzGdgTo" title="Hepatitis From Possibly Contaminated Alkaline Water" frameborder="0""></iframe>
+								</center>
+								<p>As you can see the resemblance is uncanny. An exhaustive list of the rest of the features and libraries I used would be far too long, so I have listed only the most interesting below.</p>
+								<h5>Interprocess Communication</h5>	
+								<p>I maintained what I called a "live set" as an independent process that would stay alive for the duration of the programs execution. The live set would maintain a Red-Black tree that represented the set of all Reddit post IDs that the program has already created a post for, and I could query the live set for IDs to see if they had already been used. The motivation behind this is mostly theoretical: as the size of the set of visited posts grows, it becomes increasingly less efficient to search through a text file for the post ID. However, using an RB tree we can significantly reduce the time checking for duplicates.</p>
+								<p>The original audio created by the tortoiseTTS library is a little slow for my taste. Surprisingly, there is not a very good python library for tweaking the tempo of audio files. Thankfully, the FOSS audio manipulation program Audacity provides a mechanism for IPC via pipes, which I used to program macros to load, adjust, and then export my tweaked audio very quickly.</p>								
+								<h5>Video manipulation</h5>
+								<p>Getting the video content right was by far the most difficult part. All parts of the text captions had to be done manually: For every frame I had to determine what sentence was being played at said frame, calculate newlines and padding for the most "square" block of text, and then calculate where in frame the text block should lay. I used a dynamic programming approach to solve this, since the answer was effectively the same for the duration of the sentence being played.</p>
+								<p>Once the captions were done I had to sort out the titlecards, which are also handled entirely by my program. The de facto standard is to use the Reddit post header as the video title, but since I was getting these posts via an HTML scraper, this would be very hard to obtain from the source. I ended up handling this by scraping for more content from the HTML page, and I am quite pleased with the results.</p>
+								
+								
 								<h3 class="major">AES Encryption Algorithm</h3>
 								<span class="image main"> 
 									<a href="images/round.png" target="_blank" title="Click to view in a new tab">
