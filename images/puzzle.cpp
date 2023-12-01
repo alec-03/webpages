@@ -6,6 +6,8 @@
 #include <semaphore>
 #include <iostream>
 #include <map>
+#include <future>
+#include <unordered_map>
 
 using namespace std;
 
@@ -58,7 +60,9 @@ inline int findXNeighbor(unsigned int x, unsigned int y, int offset) {
     if(m != xMap.end()) {
         if(m->second.find(y + offset) != m->second.end()) {
             pair_sem.release();
-            return 1;
+            count_sem.acquire();
+            count += 1;
+            count_sem.release();
         }
     }
     pair_sem.release();
@@ -71,7 +75,9 @@ inline int findYNeighbor(unsigned int x, unsigned int y, int offset) {
     if(m != yMap.end()) {
         if(m->second.find(x + offset) != m->second.end()) {
             pair_sem.release();
-            return 1;
+            count_sem.acquire();
+            count += 1;
+            count_sem.release();
         }
     }
     pair_sem.release();
@@ -79,15 +85,11 @@ inline int findYNeighbor(unsigned int x, unsigned int y, int offset) {
 }
 
 void findMatches(unsigned int x, unsigned int y) {
-    unsigned int localCount = 0;
-    localCount += findXNeighbor(x, y, -1);
-    localCount += findYNeighbor(x, y, -1);
-    localCount += findXNeighbor(x, y, 1);
-    localCount += findYNeighbor(x, y, 1);
-
-    count_sem.acquire();
-    count += localCount;
-    count_sem.release();
+    findXNeighbor(x, y, -1);
+    findYNeighbor(x, y, -1);
+    findXNeighbor(x, y, 1);
+    findYNeighbor(x, y, 1);
+    
     thread_sem.release();
 }
 
