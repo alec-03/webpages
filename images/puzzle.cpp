@@ -41,7 +41,7 @@ inline unsigned int getThreadCount() {
     if(!ret) {
         ret = 8;
     }
-    //return ret;
+    return ret;
     return 1;
 }
 
