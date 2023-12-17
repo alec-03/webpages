@@ -58,6 +58,16 @@
 							<article id="projects">
 								<h2 class="major">Projects</h2>
 								
+								<h3 class="major">C++ Webserver</h3>
+								<p>In my free time over winter break I have dedicated my time to making an HTTP webserver to teach myself C++. It can currently deliver simple HTML/CSS with embedded pictures, but I plan on soon adding support for Javascript and CRUD.</p>
+								<span class="image main"> 
+									<a href="images/webserver.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/webserver.png" alt="" />
+									</a>
+								</span>
+								<p>I don't have the server port-forwarded, but you can download and run it yourself <a href="https://github.com/peechoom/http" download target="_blank" title="Click to download"> here</a>. A word of caution: I have only tested this on 64-bit Linux.</p>
+								
+								
 								<h3 class="major">A Puzzle Puzzle</h3>
 								<p>I was talking to my friend Max the other day when he asked me a question he had been chewing on: <strong>If I randomly select 10 pieces from a 1000-piece 20x50 puzzle, what is the probability that any 2 pieces connect to eachother?</strong></p>
 								<p>What initially seemed like a combinatorics / discrete math problem ended up consuming me. It's such a simple problem, so why don't I know where to start? After several sleepless nights, I gave up and decided to write a program to simulate this situation thousands of times and count the results.</p>
@@ -66,7 +76,7 @@
 										<img src="images/puzzle.png" alt="" />
 									</a>
 								</span>
-								<p>My solution allows the user to input any number of pieces, an arbitrary length and width, and a number of times to run the simulation. The program is multithreaded and runs quickly, able to run the original scenario one million times in around seventy seconds on my laptop. The efficiency of the algorithm is O(s * nlog(n)) where s is the number of times to run and n is the number of pieces to choose. </p>
+								<p>My solution allows the user to input any number of pieces, an arbitrary length and width, and a number of times to run the simulation. The program is multi-threaded and runs quickly, able to run the original scenario one million times in around seventy seconds on my laptop. The efficiency of the algorithm is O(s * nlog(n)) where s is the number of times to run and n is the number of pieces to choose. </p>
 								<p>As for correctness, a good way to check is to try picking 5 pieces from a 3x3 puzzle. A checkerboard pattern is the only way to have 0 connections, and there is no way to move any piece to get only 1 connection. We can see this apply when we run the program with the arguments. You can download and compile the code yourself by clicking <a href="images/puzzle.cpp" download target="_blank" title="Click to download"> here</a>. It's not perfect, I'm sure you could break it if you push it to it's limits, but it works! </p>
 								
 								
