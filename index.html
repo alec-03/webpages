@@ -50,7 +50,7 @@
 							<article id="bio">
 								<h2 class="major">Bio</h2>
 								<span class="image main"><img src="images/me-and-959.jpg" alt="" /></span>
-								<p>Hello! My name is Alec Henderson. I am currently a Junior at NC State University studying computer science. My major areas of study are in computer networks and software security.</p>
+								<p>Hello! My name is Alec Henderson. I am currently a Junior at NC State University studying computer science. My major areas of study are in computer networks and mathematics.</p>
 								<p>In my free time I enjoy photography (some of which you can find <a href="#gallery"><b>here</b></a>), tennis (I'm alright), and programming (I'm pretty good). You can find my programming coursework and side projects <a href="#projects"><b>here</b></a>.</p>
 								<p><a href="images/AlecHendersonResume.pdf" target="_blank">Click here to view my resume</a></p>
 							</article>
@@ -59,7 +59,81 @@
 							<article id="projects">
 								<h2 class="major">Projects</h2>
 								
-								<h3 class="major">C++ Webserver</h3>
+								<h3 class="major">Tennis Club Webserver</h3>
+								<p>Over summer 2024 I spent a good chunk of my time working on a webserver for the NC State Tennis Club. The backend is written entirely in Go using Gin, GORM, and other libraries for emails, image compression, etc. and the frontend uses AngularJS, JQuery, and Bootstrap.</p>
+								<p>This was definately my most ambitious project. I had a lot of ideas for what the site could do, and I had to do it all on a single core, 1GB RAM, 25GB storage cloud computer (ie. the cheapest one I could find).</p>
+									<span class="image main"> 
+										<img src="images/gorun.jpeg" alt="" />
+								</span>							
+								<h4>Tech overview</h4>
+								<p>My server's API and static files are handled by Go and Gin. The database is a MySQL database and ORM is handled with GORM. I use docker compose to run images of MySQL, my server, and Caddy, which is a webserver that I use as a reverse proxy so that I can have HTTPS. Session management is handled with JWTs and my own in-memory database backed by an RB Tree (I previously used Redis, but this was canned for various reasons). I do not do my own user authentication, rather, I rely on Google Oauth SSO to authenticate my users and return their email, which I use to issue tokens once authenticated.</p>
+								<p>The server itself is hosted on the cheapest Linode VM, running Alpine Linux. I have several cronjobs for site maitnence, including one job that perpetually checks Github for updates to the codebase, and automatically builds and scales docker compose to allow for zero downtime continuous deployment (though I'll admit, my VM is so slow during these builds that the site may as well be down). I also created an OpenRC service to start the docker compose on startup, so reboots do not require any fiddling with the site.</p>
+								<span class="image main"> 
+									<a href="images/linode.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/linode.png" alt="" />
+									</a>
+								</span>
+								<h4>The Ladder</h4>
+								<p>The first thing I had to get sorted out, and the main reason I started this project, was the competitive ladder. You see, our ladder used to be a spreadsheet where you would challenge someone over email, and once the challenge was complete you would have to email the club so that they could adjust your position. You also have to be careful to only challenge people you are "allowed" to challenge, which has several rules involving rank range, re-challenges, etc. My friend Asher went on a challenging streak near the end of the year, and his biggest complaint was that he had to wait for the admins to update the ladder so that he could re-challenge someone higher. This complaint made me think of how the ladder updating process could be automated, which put into motion several other ideas for how I could improve the club's online experience.</p>
+								<p>The updated ladder features a table of all users in your ladder with a "challenge" button that is greyed out if you cannot challenge a user for any reason. Issuing a challenge will create a match record in the database, as well as send emails to the challenger and challenged player as reciept and notification respectively. Once concluded, either player can submit the final score on the site homepage and the record is updated immediately.</p>
+								<span class="image main"> 
+									<a href="images/ladder.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/ladder.png" alt="" />
+									</a>
+								</span>
+								<p>notice how I cannot challenge myself, and I cannot challenge Testing because I have already challenged him.</p>
+								<span class="image main"> 
+									<a href="images/challengeemail.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/challengeemail.png" alt="" />
+									</a>
+								</span>
+								<p>The email you recieve when challenged. Replying to the email will reply to the challenger, not the email service</p> 
+								<h4>Announcements</h4>
+								<p>Club admins frequently post announcements in the form of mass emails to users. This is not inherently terrible, but I saw some room for improvement. I recall one day where it was sprinkling outside and I was searching through my inbox, spam, trash, etc. to see if I had missed a cancellation email. I decided to implement an announcement feed, where admins can post things like tournament signups and rain alerts, and are given the option to email the announcement to everyone in the club. I figured making the email optional invites sillier uses of the announcement page without blowing up members' inboxes.</p>
+								<p>Emails (both for announcements and challenge emails) use my own proprietary templating where things like names, email addresses, or announcement bodies are named fields enclosed in &%your_field%&. A simple regex parser + map replaces populates the templates in runtime.</p>
+								<span class="image main"> 
+									<a href="images/ann.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/ann.png" alt="" />
+									</a>
+								</span>
+								<p>The announcement on my website</p>
+								<span class="image main"> 
+									<a href="images/anne.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/anne.png" alt="" />
+									</a>
+								</span>
+								<p>The announcement in an email. This was a pain to refactor when I learned Gmail doesn't allow custome CSS or webfonts.</p>
+								
+								<h4>Home Page</h4>
+								<p>The home page we used to have isn't great. The pictures on the site are from ten years ago and the content is not well-formatted and was always outdated. My improved page allows the non-tech-savvy to easily update the message on the homepage as well as change the pictures in the slideshow.</p>
+								<span class="image main"> 
+									<a href="images/console.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/console.png" alt="" />
+									</a>
+								</span>
+								<span class="image main"> 
+									<a href="images/console.png" target="_blank" title="Click to view in a new tab">
+										<img src="images/homepage.png" alt="" />
+									</a>
+								</span>
+								
+								
+								<h4>Problems and Optimizations</h4>
+								<p>I had a lot of problems regarding speed and efficency, especially when it came to supporting user-uploaded content. This section is for all of the optimizations I had to make and how I did it.</p>
+								<h5>Emails</h5>
+								<p>If you didn't know already, Gmail is very strict about email size and fonts. My school uses gmail for handling emails, so I was forced to keep emails under 100kb and not use any custom fonts. Stripping fonts and inlining styles was easy enough thanks to my templating, but images were more difficult.</p>
+								<p>My WYSIWYG editor uploads user images and embeds it directly into the converted HTML using base64. This is not immediately an issue, but  emailing an announcement with a 200kb picture embedded will cause gmail to truncate the email and ruin it. What I had to do was extend my templating code to strip base64 from announcements and store the raw image binary in the database. I replace the embedded image with a link to the image in the database, which is the raw binary's md5 checksum plus a file extension. This allows me to replace embedded images with links, which saves a lot of space in emails, and allows parallel fetches from browsers.</p>
+								
+								<h5>Home Page</h5>
+								<p>The homepage slideshow was originally stored in it's own database table, and all the slides were returned with a call to /slides. After running a performance test on my homepage, I realized that my slides were taking almost 500ms to load in some cases. This was for two main reasons: My entire slideshow was returned with one call to /slides, and my slides themselves were not optimized for space. </p>
+								<p>This was a huge problem because I knew my site was going to be hammered with requests during the university's recfest, where all the athletic clubs recruit new members.</p>
+								<p>I solved this problem by allowing slides to be uploaded as static files instead of database blobs, and used a compression library to convert uploaded content to compressed webp. This allows parallel fetches of smaller files, drastically improving homepage performance.</p> 
+								
+								
+								
+								
+								<h3>C++ Webserver</h3>
+								
 								<p>In my free time over winter break I have dedicated my time to making an HTTP webserver to teach myself C++. It can currently deliver this entire website with all fonts/javascript, and I am still working on a way to respond to HTTP POSTs.</p>
 								<span class="image main"> 
 									<a href="images/webserver.png" target="_blank" title="Click to view in a new tab">
