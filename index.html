@@ -129,8 +129,13 @@
 								<p>This was a huge problem because I knew my site was going to be hammered with requests during the university's recfest, where all the athletic clubs recruit new members.</p>
 								<p>I solved this problem by allowing slides to be uploaded as static files instead of database blobs, and used a compression library to convert uploaded content to compressed webp. This allows parallel fetches of smaller files, drastically improving homepage performance.</p> 
 								
-								
-								
+								<h5>Docker Container Leak</h5>
+								<p>I was preparing for a tech demo on the first day back in school when I realized none of my requests dealing with data would go through. After troubleshooting online proved futile, I ssh'd into the cloud computer to be greeted with this error message:</p>
+								<i>mkdtemp: private socket dir: No space left on device</i>
+								<p>Uh oh! I'm out of storage!</p>
+								<p>This was unexpected. My first thought was that a log file had grown too large and was causing my system to misbehave. I had written some scripts to delete log files after a week, but I was pretty new to BASH so perhaps I had made a mistake. I checked the size of my project directory, but alas, the size was under a gigabyte.</p>
+								<p>I then ran the command "<i>$ sudo du -ah / | sort -rh | head -n 20</i>" to see that /var/lib/docker was a whopping 22G on my system. With only 25G to work with, this was completely unacceptable.</p>
+								<p>Inspecting the docker directory revealed dozens of docker layers that were built but unused. I had found my culprit. A quick fix was for me to use "docker system prune -a" instead of "docker images prune" in my cleanup script. My original command only deleted images when in reality I needed to delete images, containers, and networks.</p>
 								
 								<h3>C++ Webserver</h3>
 								
