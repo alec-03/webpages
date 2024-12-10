@@ -28,7 +28,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Alec Henderson</h1>
-								<p>Software Engineering Undergraduate @ <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/">NC STATE University</a><br />
+								<p>Computer Science Undergraduate @ <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/">NC STATE University</a><br />
 								</p>
 							</div>
 						</div>
@@ -50,7 +50,7 @@
 							<article id="bio">
 								<h2 class="major">Bio</h2>
 								<span class="image main"><img src="images/me-and-959.jpg" alt="" /></span>
-								<p>Hello! My name is Alec Henderson. I am currently a Junior at NC State University studying computer science. My major areas of study are in computer networks and mathematics.</p>
+								<p>Hello! My name is Alec Henderson. I am currently a Senior at NC State University studying computer science. My major areas of study are in computer networks, robotics and mathematics.</p>
 								<p>In my free time I enjoy photography (some of which you can find <a href="#gallery"><b>here</b></a>), tennis (I'm alright), and programming (I'm pretty good). You can find my programming coursework and side projects <a href="#projects"><b>here</b></a>.</p>
 								<p><a href="images/AlecHendersonResume.pdf" target="_blank">Click here to view my resume</a></p>
 							</article>
@@ -59,6 +59,22 @@
 							<article id="projects">
 								<h2 class="major">Projects</h2>
 								
+								<h3 class="major">Senior Design: Network Health Prediction</h3>
+								<p><em>Note: This project involved transferring IP rights to NetApp.</em></p>
+								<p>For my senior design class, myself and four others were sponsored by NetApp to design them a proof-of-concept system that uses machine learning to detect and classify black-box network failures. </p>
+								<p>Our solution used small low-level programs called "agents" to sample network traffic and compile networking statistics to send to a central node that we called BrYON. BrYON then takes this data and runs it through a machine learning model which is trained to detect and classify failures. Training and testing was done in a custom network simulation suite so that we could easily test out different topologies and failure types.</p>
+								<p>The system worked quite well, we were able to sucessfully classify non-catastrophic failures in our testing set 97% of the time. Catastrophic failures were difficult to detect, but this is due to a design flaw we will discuss later.</p>
+								<p>I mostly worked on the high-level system design, the low-level agent design, and set up the different simulation topologies. I was the technical lead for the first few iterations as I had been exposed to similar technologies before, so my job was to lay most of the groundwork that we would build upon.</p>
+								<p>We learned a lot from working on this project, our biggest takeaway was that all parts of a system should be carefully deliberated upon before beginning. We ran into a lot of problems with the program that containerized our software for testing in our simulation, and this was becuase we never thought that this component was necessary to fully design since it did not have a role in the final product.</p>
+								<p>We also realized near the end of the project that a more distributed design would have worked better. This would have made our system better at detecting catastrophic failures, and eliminates the network itself as a single point of failure. (Consider: Agents send network health data through the network itself, so if the network is unhealthy, how can we trust that our data will make it?)</p>
+								
+								<h3 class="major">4R Manipulator (WIP)</h3>
+								<p>I took on this project to test the skills I learned in my robotics courses. My manipulator rotates at the base and has 3 planar revolute joints, is moved by six servo motors, and controlled by an arduino that does all kinematics equations and trajecory planning. </p>
+								<p>Input is handled with a webserver that runs on the other core of my Arduino, the details of which are helplessly boring.</p>
+								<p>Once it is working I will post a video here, but for know you'll just have to trust me.</p>
+								<span class="image main"> 
+									<img src="images/inverse_kinematics.png" alt="" />
+								</span>	
 								<h3 class="major">Tennis Club Webserver</h3>
 								<p>Over summer 2024 I spent a good chunk of my time working on a webserver for the NC State Tennis Club. The backend is written entirely in Go using Gin, GORM, and other libraries for emails, image compression, etc. and the frontend uses AngularJS, JQuery, and Bootstrap.</p>
 								<p>This was definately my most ambitious project. I had a lot of ideas for what the site could do, and I had to do it all on a single core, 1GB RAM, 25GB storage cloud computer (ie. the cheapest one I could find).</p>
