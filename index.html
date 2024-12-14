@@ -71,10 +71,17 @@
 								<p>We learned a lot from working on this project, our biggest takeaway was that all parts of a system should be carefully deliberated upon before beginning. We ran into a lot of problems with the program that containerized our software for testing in our simulation, and this was becuase we never thought that this component was necessary to fully design since it did not have a role in the final product.</p>
 								<p>We also realized near the end of the project that a more distributed design would have worked better. This would have made our system better at detecting catastrophic failures, and eliminates the network itself as a single point of failure. (Consider: Agents send network health data through the network itself, so if the network is unhealthy, how can we trust that our data will make it?)</p>
 								
-								<h3 class="major">4R Manipulator (WIP)</h3>
+								<h3 class="major">4R Manipulator</h3>
 								<p>I took on this project to test the skills I learned in my robotics courses. My manipulator rotates at the base and has 3 planar revolute joints, is moved by six servo motors, and controlled by an arduino that does all kinematics equations and trajecory planning. </p>
+									<video width="50%" controls autoplay muted loop>
+										  <source src="images/robot_chip.mp4" type="video/mp4">
+										  Your browser does not support the video tag.
+									</video> 
 								<p>Input is handled with a webserver that runs on the other core of my Arduino, the details of which are helplessly boring.</p>
-								<p>Once it is working I will post a video here, but for now you'll just have to trust me.</p>
+								<video width="50%" controls autoplay muted loop>
+										  <source src="images/robot_draw.mp4" type="video/mp4">
+										  Your browser does not support the video tag.
+									</video> 
 								<span class="image main"> 
 									<img src="images/inverse_kinematics.png" alt="" />
 								</span>	
