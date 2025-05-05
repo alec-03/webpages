@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alec Henderson</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #000000;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      text-align: center;
+    }
+    p {
+      text-align: left;
+    }
+    a {
+      color: #ffff00;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      margin: 0 auto;
+      width: 800px;
+      border: 3px dashed #ff00ff;
+      padding: 20px;
+      background-color: #000033;
+    }
+    .gif {
+      margin: 20px 0;
+    }
+    marquee {
+      font-size: 24px;
+      color: cyan;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 >4R Manipulator</h1>
+        <p>I took on this project to test the skills I learned in my robotics courses. My manipulator rotates at the base and has 3 planar revolute joints, is moved by six servo motors, and controlled by an arduino that does all kinematics equations and trajecory planning. </p>
+            <video width="50%" controls autoplay muted loop>
+                    <source src="images/robot_chip.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video> 
+        <p>Input is handled with a webserver that runs on the other core of my Arduino, the details of which are helplessly boring.</p>
+        <video width="50%" controls autoplay muted loop>
+                    <source src="images/robot_draw.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video> 
+        <span class="image main"> 
+            <img src="images/inverse_kinematics.png" alt="" />
+        </span>
+        <h2>Usage in the Classroom</h2>
+        <p>This project was a major inspiration to <a href="https://www.csc.ncsu.edu/people/smmcleod">Dr. Sterling McLeod</a> of NC State University, who hired me as a research assistant to help him use this robot as a learning platform for his "Intro to Robot Motion Planning" course.</p>
+        <p>My job was to develop the environment for the robot. In order to use this robot in fun projects, I experimented with several ways that the robot can use low-cost ESP-32-CAM boards in order to get depth perception and geometry estimation. While I did learn a lot about stereo image processing from these endeavors, such an inexpensive camera platform was deemed too sophistocated and underpowered to be used for reliable object detection.</p>
+        <p>Our new plan is to use ArUcos of known size in order to label things in the environment such as the robot, the ground plane, and any relevant objects in the robot's "playpen" for any given assignment. Knowing the sizes of these ArUcos is useful as it allows us to use forward kinematics and transform matrices to completely describe the robot's workspace with only a single camera.</p>
+    </div>
+</body>
+</html>

@@ -1,601 +1,66 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>ALEC HENDERSON</title>
-		<script src="https://kit.fontawesome.com/f9829bd41d.js" crossorigin="anonymous"></script>
-		<i class="fa-solid fa-terminal fa-xl"></i>
-		<i class="fa-brands fa-linkedin"></i>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+  <title>Alec Henderson</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #000000;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      text-align: center;
+    }
+    p {
+      text-align: left;
+    }
+    a {
+      color: #ffff00;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      margin: 0 auto;
+      width: 800px;
+      border: 3px dashed #ff00ff;
+      padding: 20px;
+      background-color: #000033;
+    }
+    .gif {
+      margin: 20px 0;
+    }
+    marquee {
+      font-size: 24px;
+      color: cyan;
+    }
+  </style>
+</head>
+<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <div class="container">
+    <h1>Alec Henderson</h1>
+    <p style="text-align: center;">Hello! My name is Alec Henderson. Welcome to my website!</p>
+    <p style="text-align: center;"><a href="#about">About Me</a> | <a href="#projects">Projects</a> | <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/">LinkedIn</a></p>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="fa-solid fa-terminal fa-2xl"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Alec Henderson</h1>
-								<p>Computer Science Undergraduate @ <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/">NC STATE University</a><br />
-								</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#bio">Bio</a></li>
-								<li><a href="#projects">Projects</a></li>
-								<li><a href="#gallery">Gallery</a></li>
-								<li><a href="mailto: alec6874@gmail.com">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+    <hr>
 
-				<!-- Main -->
-					<div id="main">
+    <h2 id="about">About Me</h2>
+    <p>I am a master's student in mechanical engineering at <a href="https://duke.edu/">Duke University</a>. I am an alumnus of <a href="https://ncsu.edu/">North Carolina State University</a> where I majored in computer science and minored in mathematics. </p>
 
-						<!-- bio -->
-							<article id="bio">
-								<h2 class="major">Bio</h2>
-								<span class="image main"><img src="images/me-and-959.jpg" alt="" /></span>
-								<p>Hello! My name is Alec Henderson. I am currently a Senior at NC State University studying computer science. My major areas of study are in computer networks, robotics and mathematics.</p>
-								<p>In my free time I enjoy photography (some of which you can find <a href="#gallery"><b>here</b></a>), tennis (I'm alright), and programming (I'm pretty good). You can find my programming coursework and side projects <a href="#projects"><b>here</b></a>.</p>
-								<p><a href="images/AlecHendersonResume.pdf" target="_blank">Click here to view my resume</a></p>
-							</article>
+    <h2 id="projects">Projects</h2>
+    <div style="display: flex; justify-content: center;">
+      <table style="border-collapse: collapse; text-align: center;">
+        <tr><td><a href="goggles.html">AR Ski Goggles</a></td></tr>
+        <tr><td><a href="robot.html">4R Manipulator</a></td></tr>
+        <tr><td><a href="seniordesign.html">Senior Design: Network Health Monitor</a></td></tr>
+        <tr><td><a href="images/KalmanFilteringGPSData.pdf" target="_blank" rel="noopener noreferrer">Kalman Filtering GPS Data (PDF)</a></td></tr>
+        <tr><td><a href="tennisclub.html">Tennis Club Webserver</a></td></tr>
+      </table>
+    </div>
+    
 
-						<!-- Work -->
-							<article id="projects">
-								<h2 class="major">Projects</h2>
-								
-								<h3 class="major">Senior Design: Network Health Prediction</h3>
-								<p><em>Note: This project involved transferring IP rights to NetApp.</em></p>
-								<p>For my senior design class, myself and four others were sponsored by NetApp to design them a proof-of-concept system that uses machine learning to detect and classify black-box network failures. </p>
-								<span class="image main"> 
-									<img src="images/poster.jpg" alt="" />
-								</span>
-								<p>Our solution used small low-level programs called "agents" to sample network traffic and compile networking statistics to send to a central node that we called BrYON. BrYON then takes this data and runs it through a machine learning model which is trained to detect and classify failures. Training and testing was done in a custom network simulation suite so that we could easily test out different topologies and failure types.</p>
-								<p>The system worked quite well, we were able to sucessfully classify non-catastrophic failures in our testing set 97% of the time. Catastrophic failures were difficult to detect, but this is due to a design flaw we will discuss later.</p>
-								<p>I mostly worked on the high-level system design, the low-level agent design, and set up the different simulation topologies. I was the technical lead for the first few iterations as I had been exposed to similar technologies before, so my job was to lay most of the groundwork that we would build upon.</p>
-								<p>We learned a lot from working on this project, our biggest takeaway was that all parts of a system should be carefully deliberated upon before beginning. We ran into a lot of problems with the program that containerized our software for testing in our simulation, and this was becuase we never thought that this component was necessary to fully design since it did not have a role in the final product.</p>
-								<p>We also realized near the end of the project that a more distributed design would have worked better. This would have made our system better at detecting catastrophic failures, and eliminates the network itself as a single point of failure. (Consider: Agents send network health data through the network itself, so if the network is unhealthy, how can we trust that our data will make it?)</p>
-								
-								<h3 class="major">4R Manipulator</h3>
-								<p>I took on this project to test the skills I learned in my robotics courses. My manipulator rotates at the base and has 3 planar revolute joints, is moved by six servo motors, and controlled by an arduino that does all kinematics equations and trajecory planning. </p>
-									<video width="50%" controls autoplay muted loop>
-										  <source src="images/robot_chip.mp4" type="video/mp4">
-										  Your browser does not support the video tag.
-									</video> 
-								<p>Input is handled with a webserver that runs on the other core of my Arduino, the details of which are helplessly boring.</p>
-								<video width="50%" controls autoplay muted loop>
-										  <source src="images/robot_draw.mp4" type="video/mp4">
-										  Your browser does not support the video tag.
-									</video> 
-								<span class="image main"> 
-									<img src="images/inverse_kinematics.png" alt="" />
-								</span>	
-								<h3 class="major">Tennis Club Webserver</h3>
-								<p>Over summer 2024 I spent a good chunk of my time working on a webserver for the NC State Tennis Club. The backend is written entirely in Go using Gin, GORM, and other libraries for emails, image compression, etc. and the frontend uses AngularJS, JQuery, and Bootstrap.</p>
-								<p>This was definately my most ambitious project. I had a lot of ideas for what the site could do, and I had to do it all on a single core, 1GB RAM, 25GB storage cloud computer (ie. the cheapest one I could find).</p>
-									<span class="image main"> 
-										<img src="images/gorun.jpeg" alt="" />
-								</span>							
-								<h4>Tech overview</h4>
-								<p>My server's API and static files are handled by Go and Gin. The database is a MySQL database and ORM is handled with GORM. I use docker compose to run images of MySQL, my server, and Caddy, which is a webserver that I use as a reverse proxy so that I can have HTTPS. Session management is handled with JWTs and my own in-memory database backed by an RB Tree (I previously used Redis, but this was canned for various reasons). I do not do my own user authentication, rather, I rely on Google Oauth SSO to authenticate my users and return their email, which I use to issue tokens once authenticated.</p>
-								<p>The server itself is hosted on the cheapest Linode VM, running Alpine Linux. I have several cronjobs for site maitnence, including one job that perpetually checks Github for updates to the codebase, and automatically builds and scales docker compose to allow for zero downtime continuous deployment (though I'll admit, my VM is so slow during these builds that the site may as well be down). I also created an OpenRC service to start the docker compose on startup, so reboots do not require any fiddling with the site.</p>
-								<span class="image main"> 
-									<a href="images/linode.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/linode.png" alt="" />
-									</a>
-								</span>
-								<h4>The Ladder</h4>
-								<p>The first thing I had to get sorted out, and the main reason I started this project, was the competitive ladder. You see, our ladder used to be a spreadsheet where you would challenge someone over email, and once the challenge was complete you would have to email the club so that they could adjust your position. You also have to be careful to only challenge people you are "allowed" to challenge, which has several rules involving rank range, re-challenges, etc. My friend Asher went on a challenging streak near the end of the year, and his biggest complaint was that he had to wait for the admins to update the ladder so that he could re-challenge someone higher. This complaint made me think of how the ladder updating process could be automated, which put into motion several other ideas for how I could improve the club's online experience.</p>
-								<p>The updated ladder features a table of all users in your ladder with a "challenge" button that is greyed out if you cannot challenge a user for any reason. Issuing a challenge will create a match record in the database, as well as send emails to the challenger and challenged player as reciept and notification respectively. Once concluded, either player can submit the final score on the site homepage and the record is updated immediately.</p>
-								<span class="image main"> 
-									<a href="images/ladder.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/ladder.png" alt="" />
-									</a>
-								</span>
-								<p>notice how I cannot challenge myself, and I cannot challenge Testing because I have already challenged him.</p>
-								<span class="image main"> 
-									<a href="images/challengeemail.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/challengeemail.png" alt="" />
-									</a>
-								</span>
-								<p>The email you recieve when challenged. Replying to the email will reply to the challenger, not the email service</p> 
-								<h4>Announcements</h4>
-								<p>Club admins frequently post announcements in the form of mass emails to users. This is not inherently terrible, but I saw some room for improvement. I recall one day where it was sprinkling outside and I was searching through my inbox, spam, trash, etc. to see if I had missed a cancellation email. I decided to implement an announcement feed, where admins can post things like tournament signups and rain alerts, and are given the option to email the announcement to everyone in the club. I figured making the email optional invites sillier uses of the announcement page without blowing up members' inboxes.</p>
-								<p>Emails (both for announcements and challenge emails) use my own proprietary templating where things like names, email addresses, or announcement bodies are named fields enclosed in &%your_field%&. A simple regex parser + map replaces populates the templates in runtime.</p>
-								<span class="image main"> 
-									<a href="images/ann.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/ann.png" alt="" />
-									</a>
-								</span>
-								<p>The announcement on my website</p>
-								<span class="image main"> 
-									<a href="images/anne.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/anne.png" alt="" />
-									</a>
-								</span>
-								<p>The announcement in an email. This was a pain to refactor when I learned Gmail doesn't allow custome CSS or webfonts.</p>
-								
-								<h4>Home Page</h4>
-								<p>The home page we used to have isn't great. The pictures on the site are from ten years ago and the content is not well-formatted and was always outdated. My improved page allows the non-tech-savvy to easily update the message on the homepage as well as change the pictures in the slideshow.</p>
-								<span class="image main"> 
-									<a href="images/console.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/console.png" alt="" />
-									</a>
-								</span>
-								<span class="image main"> 
-									<a href="images/console.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/homepage.png" alt="" />
-									</a>
-								</span>
-								
-								
-								<h4>Problems and Optimizations </h4>
-								<p>I had a lot of problems regarding speed and efficency, especially when it came to supporting user-uploaded content. This section is for all of the optimizations I had to make and how I did it.</p>
-								<h5>Emails</h5>
-								<p>If you didn't know already, Gmail is very strict about email size and fonts. My school uses gmail for handling emails, so I was forced to keep emails under 100kb and not use any custom fonts. Stripping fonts and inlining styles was easy enough thanks to my templating, but images were more difficult.</p>
-								<p>My WYSIWYG editor uploads user images and embeds it directly into the converted HTML using base64. This is not immediately an issue, but  emailing an announcement with a 200kb picture embedded will cause gmail to truncate the email and ruin it. What I had to do was extend my templating code to strip base64 from announcements and store the raw image binary in the database. I replace the embedded image with a link to the image in the database, which is the raw binary's md5 checksum plus a file extension. This allows me to replace embedded images with links, which saves a lot of space in emails, and allows parallel fetches from browsers.</p>
-								
-								<h5>Home Page</h5>
-								<p>The homepage slideshow was originally stored in it's own database table, and all the slides were returned with a call to /slides. After running a performance test on my homepage, I realized that my slides were taking almost 500ms to load in some cases. This was for two main reasons: My entire slideshow was returned with one call to /slides, and my slides themselves were not optimized for space. </p>
-								<p>This was a huge problem because I knew my site was going to be hammered with requests during the university's recfest, where all the athletic clubs recruit new members.</p>
-								<p>I solved this problem by allowing slides to be uploaded as static files instead of database blobs, and used a compression library to convert uploaded content to compressed webp. This allows parallel fetches of smaller files, drastically improving homepage performance.</p> 
-								
-								<h5>Docker Container Leak</h5>
-								<p>I was preparing for a tech demo on the first day back in school when I realized none of my requests dealing with data would go through. After troubleshooting online proved futile, I ssh'd into the cloud computer to be greeted with this error message:</p>
-								<i>mkdtemp: private socket dir: No space left on device</i>
-								<p>Uh oh! I'm out of storage!</p>
-								<p>This was unexpected. My first thought was that a log file had grown too large and was causing my system to misbehave. I had written some scripts to delete log files after a week, but I was pretty new to BASH so perhaps I had made a mistake. I checked the size of my project directory, but alas, the size was under a gigabyte.</p>
-								<p>I then ran the command "<i>$ sudo du -ah / | sort -rh | head -n 20</i>" to see that /var/lib/docker was a whopping 22G on my system. With only 25G to work with, this was completely unacceptable.</p>
-								<p>Inspecting the docker directory revealed dozens of docker layers that were built but unused. I had found my culprit. A quick fix was for me to use "docker system prune -a" instead of "docker images prune" in my cleanup script. My original command only deleted images when in reality I needed to delete images, containers, and networks.</p>
-								
-								<h3>C++ Webserver</h3>
-								
-								<p>In my free time over winter break I have dedicated my time to making an HTTP webserver to teach myself C++. It can currently deliver this entire website with all fonts/javascript, and I am still working on a way to respond to HTTP POSTs.</p>
-								<span class="image main"> 
-									<a href="images/webserver.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/webserver.png" alt="" />
-									</a>
-								</span>
-								<p>I don't have the server port-forwarded, but you can download and run it yourself <a href="https://github.com/peechoom/http" download target="_blank" title="Click to download"> here</a>. A word of caution: I have only tested this on 64-bit Linux.</p>
-								
-								
-								<h3 class="major">A Puzzle Puzzle</h3>
-								<p>I was talking to my friend Max the other day when he asked me a question he had been chewing on: <strong>If I randomly select 10 pieces from a 1000-piece 20x50 puzzle, what is the probability that any 2 pieces connect to eachother?</strong></p>
-								<p>What initially seemed like a combinatorics / discrete math problem ended up consuming me. It's such a simple problem, so why don't I know where to start? After several sleepless nights, I gave up and decided to write a program to simulate this situation thousands of times and count the results.</p>
-								<span class="image main"> 
-									<a href="images/puzzle.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/puzzle.png" alt="" />
-									</a>
-								</span>
-								<p>My solution allows the user to input any number of pieces, an arbitrary length and width, and a number of times to run the simulation. The program is multi-threaded and runs quickly, able to run the original scenario one million times in around seventy seconds on my laptop. The efficiency of the algorithm is O(s * nlog(n)) where s is the number of times to run and n is the number of pieces to choose. </p>
-								<p>As for correctness, a good way to check is to try picking 5 pieces from a 3x3 puzzle. A checkerboard pattern is the only way to have 0 connections, and there is no way to move any piece to get only 1 connection. We can see this apply when we run the program with the arguments. You can download and compile the code yourself by clicking <a href="images/puzzle.cpp" download target="_blank" title="Click to download"> here</a>. It's not perfect, I'm sure you could break it if you push it to it's limits, but it works! </p>
-								
-								
-								<h3 class="major">Endless Entertainment</h3>
-								<center>
-									<video width="50%" controls>
-										  <source src="images/racecar.mp4" type="video/mp4">
-										  Your browser does not support the video tag.
-									</video> 
-								</center>
+  </div>
 
-								<p>If you have spent any time on TikTok, Instagram Reels, or YouTube shorts, you will have stumbled upon a video like the one shown above: A narrator reading a story from Reddit aloud while video game footage plays in the background. After seeing about a dozen of these, the computer scientist within me wondered if these videos could be automated to any extent. Thus began a programming journey that would occupy me for a good portion of my summer--the finished product being a system that can churn out videos (including the one above) without any user input.</p>
-								<p>The top level design was simple: Find a Reddit post online, have a narrator read the content of the post aloud, tack the audio over some game footage, and then upload the finished product online. The low-level design was intentionally very complex--I wanted to see just how much I had learned after my sophomore year. My project started with the narrator. These types of posts often use a very robotic voice, but I wanted something better. I elected to use the tortoiseTTS API, a library for training and using an AI voice synthesizer on CUDA systems. I trained my model on podcasts made by a YouTuber I watch, an example is embedded below.</p>
-								<center>
-									<iframe width="100%" height="320px" src="https://www.youtube.com/embed/dsZzKzGdgTo" title="Hepatitis From Possibly Contaminated Alkaline Water" frameborder="0""></iframe>
-								</center>
-								<p>As you can see the resemblance is uncanny. An exhaustive list of the rest of the features and libraries I used would be far too long, so I have listed only the most interesting below.</p>
-								<h5>Interprocess Communication</h5>	
-								<p>I maintained what I called a "live set" as an independent process that would stay alive for the duration of the programs execution. The live set would maintain a Red-Black tree that represented the set of all Reddit post IDs that the program has already created a post for, and I could query the live set for IDs to see if they had already been used. The motivation behind this is mostly theoretical: as the size of the set of visited posts grows, it becomes increasingly less efficient to search through a text file for the post ID. However, using an RB tree we can significantly reduce the time checking for duplicates.</p>
-								<p>The original audio created by the tortoiseTTS library is a little slow for my taste. Surprisingly, there is not a very good python library for tweaking the tempo of audio files. Thankfully, the FOSS audio manipulation program Audacity provides a mechanism for IPC via pipes, which I used to program macros to load, adjust, and then export my tweaked audio very quickly.</p>								
-								<h5>Video manipulation</h5>
-								<p>Getting the video content right was by far the most difficult part. All parts of the text captions had to be done manually: For every frame I had to determine what sentence was being played at said frame, calculate newlines and padding for the most "square" block of text, and then calculate where in frame the text block should lay. I used a dynamic programming approach to solve this, since the answer was effectively the same for the duration of the sentence being played.</p>
-								<p>Once the captions were done I had to sort out the titlecards, which are also handled entirely by my program. The de facto standard is to use the Reddit post header as the video title, but since I was getting these posts via an HTML scraper, this would be very hard to obtain from the source. I ended up handling this by scraping for more content from the HTML page, and I am quite pleased with the results.</p>
-								
-								
-								<h3 class="major">AES Encryption Algorithm</h3>
-								<span class="image main"> 
-									<a href="images/round.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/round.png" alt="" />
-									</a>
-								</span>
-								<p>This project looked daunting at first but ended up being one of my favorites to date. AES was invented by two guys in Belgium, but the US government liked it so much that now they use it to encrypt almost anything that matters</p>
-								<p>The details are far too sophistocated to describe all the particulars of, but simply, the algorithm takes a 16-byte key and does some clever bit-level manipulation and linear algebra to generate the encrypted result. This can be run several times to create an encrypted file that gets progressively harder to crack. The linear algebra bits allow keys that can expire, meaning that with only a few tweaks, I could make it so that this program encrypts files that are impossible to decrypt even with the key after some time!</p>
-								<span class="image main"> 
-									<a href="images/AESdemo.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/AESdemo.png" alt="" />
-									</a>
-								</span>
-								<p>Here is the result of our algorithm ran with 10 passes on a picture of my girlfriend's chinchilla, Apple. after encrypting and decrypting apple we can see that the result matches the input exactly!</p>
-								
-								
-								
-								<h3 class="major">Ident (grep clone)</h3>
-								<span class="image main"> 
-									<a href="images/ident.mp4" target="_blank" title="Click to view in a new tab">
-										<video width="100%" autoplay muted>
-											  <source src="images/ident.mp4" type="video/mp4">
-											  Your browser does not support the video tag.
-										</video> 
-									</a>
-								</span>
-								<p>We had several projects in my C/C++ development class, but this one was one of my favorites.</p>
-								<p>Ident is essentially a clone of grep that parses a document for a string (no regex yet!) and prints the lines in which the string occurs to standard out.</p>
-								<p>The program can also has many flags as you can see in the demo, -c [x] will show 'x' lines of context above and below, -n will print line numbers, and -o was the extra credit, this highlights all c operators.</p>
-								<p>If it were up to me, I would want -o to highlight all C keywords too, but I dont write the rules!</p>
-								
-								<h3 class="major">PackScheduler</h3>
-								<span class="image main"> 
-									<a href="images/Packscheduler.mp4" target="_blank" title="Click to view in a new tab">
-										<video width="100%" autoplay muted>
-											  <source src="images/Packscheduler.mp4" type="video/mp4">
-											  Your browser does not support the video tag.
-										</video> 
-									</a>
-								</span>
-								<p>This was the semester-long lab project that required a new functionality every week. Packscheduler can manage the schedules of students, faculty, and the whole school when signed in as the registrar.</p>
-								<p>In my opinion this was an amazing introduction to working on a large system, because every 3 weeks we would change lab partners. This resulted in code that likely half of the class had worked on at some point, due to different implementations being worked on every month.</p>
-								<p>It was not unlikely that at some point you would have to debug code written by someone in another group after a bug is found 7 weeks later.</p>
-								
-								<h3 class="major">Test Plan Software</h3>
-								<span class="image main">
-									<a href="images/STP1.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/STP1.png" alt="" />
-									</a>
-								</span>
-								<p>My final project in my Software Development Fundimentals class was a program that can manage the System Test Plans for several programs that a developer / tester could be working on.</p>
-								<span class="image main"> 
-									<a href="images/STP2.mp4" target="_blank" title="Click to view in a new tab">
-										<video width="100%" autoplay muted>
-											  <source src="images/STP2.mp4" type="video/mp4">
-											  Your browser does not support the video tag.
-										</video> 
-									</a>
-								</span>
-								<p>This is my design and implementation of the program. The learning outcome of this project was to cement our understanding of linear data structures including custom array and linked lists. I'm particularly proud of my LinkedList implementation which maintains a sorted order as elements are added</p>
-								
-								<h3 class="major">Software Development Requirements Manager</h3>
-								<span class="image main">
-									<a href="images/ReqMan2.png" target="_blank" title="Click to view in a new tab">
-										<img src="images/ReqMan2.png" alt="" />
-									</a>
-								</span>
-								<p>As a part of my Software Development Fundamentals class, we were instructed to design and then implement a program that could manage several "user stories"--low level abstractions of what a program in development should do. We all were required to implement a finite state machine in our programs, with each state representing a phase of development of any particular story.</p>
-								<span class="image main">
-									<a href="images/ReqMan1.jpg" target="_blank" title="Click to view in a new tab">
-										<img src="images/ReqMan1.jpg" alt="" />
-									</a>
-								</span>								<p>This is my implementation of the program, it implements both the state pattern and the singleton pattern, and has full file IO capabilities. Perhaps I should start using this in my future projects!</p>
-								<hr/>
-								<!-- Write new things here! -->
-								
-							</article>
-
-						<!-- gallery -->
-							<article id="gallery">
-								<h2 class="major">Gallery</h2>
-								<h3>"Abandoned"</h3>
-								<h4>2nd place in the Wake Review photography competition!</h4>
-								<span class="image main"><img src="images/Abandoned.jpg" alt="" /></span>
-								<hr/>
-								<span class="image main"><img src="images/hunt-min.jpg" alt="Hunt Library" /></span>
-								<hr/>
-								<span class="image main"><img src="images/f40-min.jpg" alt="Ferrari F40 I saw once" /></span>
-								<hr/>
-								<span class="image main"><img src="images/jan24-min.jpg" alt="" /></span>
-								<hr/>
-								<span class="image main"><img src="images/export (3 of 9)-min.jpg" alt="Ruah-Welt Porsche" /></span>
-								<hr/>								
-								<span class="image main"><img src="images/rustBucket-min.jpg" alt="" /></span>
-								<hr/>
-
-								<p>Alec Henderson reserves all rights to all creative works shown</p>
-								</article>
-
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/" class="fa-brands fa-linkedin"></a></li>
-									<li><a href="https://github.ncsu.edu/ajhende4" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-brands fa-linkedin"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
-							</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Alec Henderson</p>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
