@@ -1,67 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Alec Henderson</title>
   <meta charset="UTF-8">
+  <title>Alec Henderson</title>
   <style>
     body {
-      background-color: #000000;
-      color: #00ff00;
+      background-color: #0a0a0a;
+      color: #00ff99;
       font-family: "Courier New", monospace;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
+
+    /* Navigation Banner */
+    nav {
+      background: linear-gradient(90deg, #0033cc, #9900cc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 15px 0;
+      border-bottom: 2px solid #00ffff;
+      box-shadow: 0 0 10px #00ffff44;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffff66;
+      text-shadow: 0 0 5px #ffff66;
+    }
+
+    .container {
+      margin: 40px auto;
+      width: 90%;
+      max-width: 800px;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      padding: 25px;
+      background-color: #111122;
+      box-shadow: 0 0 15px #001133;
+    }
+
+    h1, h2 {
+      color: #00ffff;
+      text-shadow: 0 0 2px #009999;
+    }
+
     p {
       text-align: left;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #b8faff;
     }
+
     a {
-      color: #ffff00;
+      color: #ffff66;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+      color: #ffffff;
     }
-    .container {
+
+    table {
       margin: 0 auto;
-      width: 800px;
-      border: 3px dashed #ff00ff;
-      padding: 20px;
-      background-color: #000033;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 400px;
     }
-    .gif {
-      margin: 20px 0;
+
+    td {
+      padding: 10px;
+      border-bottom: 1px dashed #3333aa;
     }
+
+    hr {
+      border: none;
+      border-top: 1px solid #00ffff;
+      margin: 25px 0;
+    }
+
     marquee {
-      font-size: 24px;
-      color: cyan;
+      font-size: 18px;
+      color: #00ccff;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation Banner -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
+
   <div class="container">
     <h1>Alec Henderson</h1>
-    <p style="text-align: center;">Hello! My name is Alec Henderson. Welcome to my website!</p>
-    <p style="text-align: center;"><a href="#about">About Me</a> | <a href="#projects">Projects</a> | <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/">LinkedIn</a></p>
-
+    <p>Hello! My name is Alec. Welcome to my website!</p>
+    <p>I keep myself busy by thinking about how we can use robots to extend our humanity. What are the most robotic aspects of our lives that robots ought to do? How can we extend human capabilities with robotic aid? These are the kinds of meta-problems that I want to solve.</p>
     <hr>
 
     <h2 id="about">About Me</h2>
-    <p>I am a master's student in mechanical engineering at <a href="https://duke.edu/">Duke University</a>. I am an alumnus of <a href="https://ncsu.edu/">North Carolina State University</a> where I majored in computer science and minored in mathematics. </p>
+    <p>
+    I am an avid tennis player and weightlifter (much better at the former), and I can get behind any reason to go outside. I am a big fan of the visual arts (<a href="images/Abandoned-min.jpg">this photo</a> scored second place in the Wake Review), though I love good music as well. I am in everlasting search for the perfect cup of coffee; Infame Lisboa is my current leader if you're ever in Portugal.
+    </p>
+    <p>
+      I am a current master's student in robotics & autonomy at
+      <a href="https://duke.edu/">Duke University</a>.
+      I am an alumnus of
+      <a href="https://ncsu.edu/">North Carolina State University</a>,
+      where I majored in computer science and minored in mathematics. I am a skilled C/C++ programmer, and I spend most of my code-crunching time working with ROS2 and microcontrollers, you can read more about that below. 
+    </p>
+    
+    <p>
+    
+    </p>
+
+    <hr>
 
     <h2 id="projects">Projects</h2>
-    <div style="display: flex; justify-content: center;">
-      <table style="border-collapse: collapse; text-align: center;">
-        <tr><td><a href="robotclub.html">AR Ski Goggles</a></td></tr>
-        <tr><td><a href="goggles.html">AR Ski Goggles</a></td></tr>
-        <tr><td><a href="robot.html">4R Manipulator</a></td></tr>
-        <tr><td><a href="seniordesign.html">Senior Design: Network Health Monitor</a></td></tr>
-        <tr><td><a href="images/KalmanFilteringGPSData.pdf" target="_blank" rel="noopener noreferrer">Kalman Filtering GPS Data (PDF)</a></td></tr>
-        <tr><td><a href="tennisclub.html">Tennis Club Webserver</a></td></tr>
-      </table>
-    </div>
-    
+    <table>
+      <tr><td><a href="robotclub.html">Duke Robotics Club</a></td></tr>
+      <tr><td><a href="goggles.html">AR Ski Goggles</a></td></tr>
+      <tr><td><a href="robot.html">4R Manipulator</a></td></tr>
+      <tr><td><a href="seniordesign.html">Senior Design: Network Health Monitor</a></td></tr>
+      <tr><td><a href="images/KalmanFilteringGPSData.pdf" target="_blank" rel="noopener noreferrer">Kalman Filtering GPS Data (PDF)</a></td></tr>
+      <tr><td><a href="tennisclub.html">Tennis Club Webserver</a></td></tr>
+    </table>
 
+    <marquee behavior="scroll" direction="left">Crazy how nobody uses marquees anymore, they're so fun!</marquee>
+    <hr>
+    <a style=".center" href="https://www.biblegateway.com/passage/?search=Matthew%206%3A25-33&version=NIV">✝ Matthew 6:25</a>
   </div>
 
 </body>
 </html>
+

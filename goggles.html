@@ -1,46 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alec Henderson</title>
   <meta charset="UTF-8">
+  <title>Alec Henderson</title>
   <style>
     body {
-      background-color: #000000;
-      color: #00ff00;
+      background-color: #0a0a0a;
+      color: #00ff99;
       font-family: "Courier New", monospace;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
+
+    /* Navigation Banner */
+    nav {
+      background: linear-gradient(90deg, #0033cc, #9900cc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 15px 0;
+      border-bottom: 2px solid #00ffff;
+      box-shadow: 0 0 10px #00ffff44;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffff66;
+      text-shadow: 0 0 5px #ffff66;
+    }
+
+    .container {
+      margin: 40px auto;
+      width: 90%;
+      max-width: 800px;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      padding: 25px;
+      background-color: #111122;
+      box-shadow: 0 0 15px #001133;
+    }
+
+    h1, h2 {
+      color: #00ffff;
+      text-shadow: 0 0 2px #009999;
+    }
+
     p {
       text-align: left;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #b8faff;
     }
+
     a {
-      color: #ffff00;
+      color: #ffff66;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+      color: #ffffff;
     }
-    .container {
+
+    table {
       margin: 0 auto;
-      width: 800px;
-      border: 3px dashed #ff00ff;
-      padding: 20px;
-      background-color: #000033;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 400px;
     }
-    .gif {
-      margin: 20px 0;
+
+    td {
+      padding: 10px;
+      border-bottom: 1px dashed #3333aa;
     }
+
+    hr {
+      border: none;
+      border-top: 1px solid #00ffff;
+      margin: 25px 0;
+    }
+
     marquee {
-      font-size: 24px;
-      color: cyan;
+      font-size: 18px;
+      color: #00ccff;
+      margin-top: 20px;
     }
     img {
-        max-width: 100%;
-        height: auto;
+      max-width: 100%
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Navigation Banner -->
+  <nav>
+    <a href="index.html/#">Home</a>
+    <a href="index.html/#about">About Me</a>
+    <a href="index.html/#projects">Projects</a>
+    <a href="https://www.linkedin.com/in/alec-henderson-84abb11b5/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
 
   <div class="container">
     <h1 class="major">AR ski goggles</h1>
